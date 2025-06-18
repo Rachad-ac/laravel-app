@@ -32,7 +32,8 @@ class EtudiantController extends Controller
         $validated = $request->validate([
             'nom' => 'required|string|max:255',
             'prenom' => 'required|string|max:255',
-            'email' => 'required|email|unique:etudiants',
+            "tel"  => 'required|number|max:255',
+            'email' => 'required|email|unique:etudiants'
         ]);
         $etudiant = Etudiant::create($validated);
         return response()->json($etudiant, 201);
@@ -61,9 +62,9 @@ class EtudiantController extends Controller
     public function update(Request $request, Etudiant $etudiant)
     {
         $validated = $request->validate([
-            'nom' => 'sometimes|required|string|max:255',
-            'prenom' => 'sometimes|required|string|max:255',
-            'email' => 'sometimes|required|email|unique:etudiants,email,' . $etudiant->id,
+            'nom' => 'required|string|max:255',
+            'prenom' => 'required|string|max:255',
+            'email' => 'required|email|unique:etudiants,email,' . $etudiant->id,
         ]);
 
         $etudiant->update($validated);
@@ -77,6 +78,6 @@ class EtudiantController extends Controller
     public function destroy(Etudiant $etudiant)
     {
         $etudiant->delete();
-        return response()->json(null, 204);
+        return response()->json("Suppression reussie", 204);
     }
 }

@@ -12,6 +12,7 @@ class Produit extends Model
         "nom_produit",
         "description",
         "prix_unitaire",
+        "stock",
         "categorie_id"
     ];
 

@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nom_produit');
             $table->string('description')->nullable();
             $table->decimal('prix_unitaire' , 10 , 2);
+            $table->integer('stock');
 
             $table->foreignId('categorie_id')->constrained('produits')->onDelete('cascade');
 

@@ -1,5 +1,6 @@
 <?php
-use App\Http\Controllers\EtudiantController;
+use App\Http\Controllers\CategorieController;
+use App\Http\Controllers\ProduitController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('/etudiants', EtudiantController::class);
 Route::apiResource('categories', CategorieController::class); 
 Route::apiResource('produits', ProduitController::class); 
